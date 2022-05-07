@@ -60,8 +60,12 @@ class Neural_Network(object) :
     def predict(self):
         
         print("Predicted data after training: \n")
-        print("Input : \n" + str(unknown) + "\n")
-        print("Output : \n" + str(self.forward(unknown)) + "\n")
+
+        print("Input : \n" + str(output_data))
+        print("Output : \n" + str(numpy.round(NN.forward(data), 2)))
+
+        print("Unknown input : \n" + str(unknown) + "\n")
+        print("Unknown output : \n" + str(self.forward(unknown)) + "\n")
 
         if(self.forward(unknown) < 0.5):
             print("The object is BLUE ! \n")
@@ -70,7 +74,7 @@ class Neural_Network(object) :
 
 NN = Neural_Network()    
 
-for i in range(1000): 
+for i in range(1500000): 
     NN.training(data, output_data)
 
 NN.predict()
